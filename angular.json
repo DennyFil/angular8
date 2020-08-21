@@ -1,8 +1,129 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "learning": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/learning",
+      "sourceRoot": "apps/learning/src",
+      "prefix": "agx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/learning",
+            "index": "apps/learning/src/index.html",
+            "main": "apps/learning/src/main.ts",
+            "polyfills": "apps/learning/src/polyfills.ts",
+            "tsConfig": "apps/learning/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/learning/src/favicon.ico",
+              "apps/learning/src/assets"
+            ],
+            "styles": ["apps/learning/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/learning/src/environments/environment.ts",
+                  "with": "apps/learning/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "learning:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "learning:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "learning:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/learning/tsconfig.app.json",
+              "apps/learning/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/learning/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/learning/src/test.ts",
+            "tsConfig": "apps/learning/tsconfig.spec.json",
+            "karmaConfig": "apps/learning/karma.conf.js",
+            "polyfills": "apps/learning/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        }
+      }
+    },
+    "learning-e2e": {
+      "root": "apps/learning-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/learning-e2e/protractor.conf.js",
+            "devServerTarget": "learning:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "learning:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/learning-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/learning-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -38,6 +159,14 @@
       "library": {
         "linter": "tslint"
       }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "protractor"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "karma"
     }
-  }
+  },
+  "defaultProject": "learning"
 }
