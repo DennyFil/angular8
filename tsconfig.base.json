@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular8-course-ws/home/feature": ["libs/home/feature/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

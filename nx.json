@@ -28,6 +28,9 @@
     "learning-e2e": {
       "tags": [],
       "implicitDependencies": ["learning"]
+    },
+    "home-feature": {
+      "tags": []
     }
   }
 }
