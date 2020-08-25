@@ -34,6 +34,6 @@ $learning-theme: mat-light-theme((
 @include angular-material-theme($learning-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import '_base'
+@import '_base';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
