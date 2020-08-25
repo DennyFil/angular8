@@ -21,7 +21,12 @@
               "apps/learning/src/favicon.ico",
               "apps/learning/src/assets"
             ],
-            "styles": ["apps/learning/src/styles.css"],
+            "styles": ["apps/learning/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/shared/styles/src/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
