@@ -3,17 +3,18 @@
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 @import './themes/app-theme.scss';
+@import '_typography';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+@include mat-core($typography-config);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$learning-primary: mat-palette($mat-amber, 500, 200, 900);
+$learning-primary: mat-palette($mat-purple, 500, 200, 900);
 $learning-accent: mat-palette($mat-green, 500, 200, 900);
 
 // The warn palette is optional (defaults to red).
@@ -21,7 +22,7 @@ $learning-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$learning-theme: mat-light-theme((
+$learning-theme: mat-dark-theme((
   color: (
     primary: $learning-primary,
     accent: $learning-accent,
