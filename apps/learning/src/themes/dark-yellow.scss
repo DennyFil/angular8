@@ -1,7 +1,5 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-@import './themes/app-theme.scss';
+@import './app-theme.scss';
 @import '_base';
 @import '_typography';
 // Plus imports for other components in your app.
@@ -11,18 +9,48 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core($typography-config);
 
+$mat-dark-palette: (
+  50: #e2e1e4,
+  100: #b6b5ba,
+  200: #86848d,
+  300: #55525f,
+  400: #302d3c,
+  500: #0c081a,
+  600: #0a0717,
+  700: #080613,
+  800: #06040f,
+  900: #030208,
+  A100: #4e4eff,
+  A200: #1b1bff,
+  A400: #0000e7,
+  A700: #0000ce,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  )
+);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$learning-primary: mat-palette($mat-deep-purple, 500, 200, 900);
-$learning-accent: mat-palette($mat-green, 500, 200, 900);
-
-// The warn palette is optional (defaults to red).
-$learning-warn: mat-palette($mat-red);
+$learning-primary: mat-palette($mat-dark-palette, 500, 200, 900);
+$learning-accent: mat-palette($mat-yellow, 500, 200, 900);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$learning-theme: mat-dark-theme($learning-primary, $learning-accent, $learning-warn);
+$learning-theme: mat-dark-theme($learning-primary, $learning-accent);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

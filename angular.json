@@ -17,11 +17,34 @@
             "polyfills": "apps/learning/src/polyfills.ts",
             "tsConfig": "apps/learning/tsconfig.app.json",
             "aot": true,
+            "extractCss": true,
             "assets": [
               "apps/learning/src/favicon.ico",
               "apps/learning/src/assets"
             ],
-            "styles": ["apps/learning/src/styles.scss"],
+            "styles": [
+              "apps/learning/src/styles.scss",
+              {
+                "input": "apps/learning/src/themes/amber-green.scss",
+                "bundleName": "assets/themes/amber-green",
+                "lazy": true
+              },
+              {
+                "input": "apps/learning/src/themes/dark-yellow.scss",
+                "bundleName": "assets/themes/dark-yellow",
+                "lazy": true
+              },
+              {
+                "input": "apps/learning/src/themes/deep-purple-green.scss",
+                "bundleName": "assets/themes/deep-purple-green",
+                "lazy": true
+              },
+              {
+                "input": "apps/learning/src/themes/pink-blue-gray.scss",
+                "bundleName": "assets/themes/pink-blue-gray",
+                "lazy": true
+              }
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "libs/shared/styles/src/"
