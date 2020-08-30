@@ -16,6 +16,8 @@
             background-color: $background-color;
         
             &__input {
+                border-style: none;
+                outline: none;
                 background-color: transparent;
             }
         }
