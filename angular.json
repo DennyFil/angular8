@@ -46,9 +46,7 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/shared/styles/src/"
-              ]
+              "includePaths": ["libs/shared/styles/src/"]
             },
             "scripts": []
           },
@@ -175,6 +173,69 @@
         }
       },
       "schematics": {}
+    },
+    "theme-picker": {
+      "projectType": "library",
+      "root": "libs/theme-picker",
+      "sourceRoot": "libs/theme-picker/src",
+      "prefix": "angular8-course-ws",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/theme-picker/tsconfig.lib.json",
+              "libs/theme-picker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/theme-picker/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/theme-picker/jest.config.js",
+            "tsConfig": "libs/theme-picker/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/theme-picker/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-material": {
+      "projectType": "library",
+      "root": "libs/angular-material",
+      "sourceRoot": "libs/angular-material/src",
+      "prefix": "angular8-course-ws",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-material/tsconfig.lib.json",
+              "libs/angular-material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular-material/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/angular-material/src/test.ts",
+            "tsConfig": "libs/angular-material/tsconfig.spec.json",
+            "karmaConfig": "libs/angular-material/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

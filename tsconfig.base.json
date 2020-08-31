@@ -16,7 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular8-course-ws/home/feature": ["libs/home/feature/src/index.ts"]
+      "@angular8-course-ws/home/feature": ["libs/home/feature/src/index.ts"],
+      "@angular8-course-ws/theme-picker": ["libs/theme-picker/src/index.ts"],
+      "@angular8-course-ws/angular-material": [
+        "libs/angular-material/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

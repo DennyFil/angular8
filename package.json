@@ -67,6 +67,11 @@
     "jasmine-spec-reporter": "~4.2.1",
     "@types/jasmine": "~2.8.8",
     "protractor": "~5.4.0",
-    "@types/jasminewd2": "~2.0.3"
+    "@types/jasminewd2": "~2.0.3",
+    "jest-preset-angular": "8.2.1",
+    "@nrwl/jest": "10.1.0",
+    "jest": "26.2.2",
+    "@types/jest": "26.0.8",
+    "ts-jest": "26.1.4"
   }
 }
