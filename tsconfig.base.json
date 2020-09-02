@@ -20,7 +20,11 @@
       "@angular8-course-ws/theme-picker": ["libs/theme-picker/src/index.ts"],
       "@angular8-course-ws/angular-material": [
         "libs/angular-material/src/index.ts"
-      ]
+      ],
+      "@angular8-course-ws/config/learning": [
+        "libs/config/learning/src/index.ts"
+      ],
+      "@angular8-course-ws/shared/shared": ["libs/shared/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
