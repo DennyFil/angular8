@@ -79,6 +79,20 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/learning/en",
+              "i18nFile": "apps/learning/src/i18n/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en"
+            },
+            "es": {
+              "aot": true,
+              "outputPath": "dist/learning/es",
+              "i18nFile": "apps/learning/src/i18n/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es"
             }
           }
         },
@@ -90,6 +104,12 @@
           "configurations": {
             "production": {
               "browserTarget": "learning:build:production"
+            },
+            "en": {
+              "browserTarget": "learning:build:en"
+            },
+            "es": {
+              "browserTarget": "learning:build:es"
             }
           }
         },
