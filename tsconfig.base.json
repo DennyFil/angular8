@@ -24,7 +24,11 @@
       "@angular8-course-ws/config/learning": [
         "libs/config/learning/src/index.ts"
       ],
-      "@angular8-course-ws/shared/shared": ["libs/shared/shared/src/index.ts"]
+      "@angular8-course-ws/shared/shared": ["libs/shared/shared/src/index.ts"],
+      "@angular8-course-ws/language-picker": [
+        "libs/language-picker/src/index.ts"
+      ],
+      "@angular8-course-ws/email-input": ["libs/email-input/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

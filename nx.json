@@ -43,6 +43,12 @@
     },
     "shared-shared": {
       "tags": []
+    },
+    "language-picker": {
+      "tags": []
+    },
+    "email-input": {
+      "tags": []
     }
   }
 }
