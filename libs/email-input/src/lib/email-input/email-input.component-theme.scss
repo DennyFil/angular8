@@ -1,0 +1,22 @@
+@mixin email-input-component-theme($theme) {
+   
+    $primary: map-get($theme, primary);
+
+    $start-color: mat-color($primary, 400);
+    $end-color: mat-color($primary, 900);
+
+    angular8-course-ws-email-input {
+        
+        .email-control {
+
+            &__input {
+                font-size: mat-font-size($typography-config, body-1);
+                font-family: mat-font-family($typography-config);
+            }
+
+            &__btn {
+                background: linear-gradient(to bottom, rgba($start-color, 0.95), rgba($end-color, 0.95));
+            }
+        }
+    }
+}
