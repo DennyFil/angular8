@@ -47,7 +47,9 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/shared/styles/src/"]
+              "includePaths": [
+                "libs/shared/styles/src/"
+              ]
             },
             "scripts": []
           },
@@ -126,7 +128,10 @@
               "apps/learning/tsconfig.app.json",
               "apps/learning/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/learning/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/learning/**/*"
+            ]
           }
         },
         "test": {
@@ -163,7 +168,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/learning-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**", "!apps/learning-e2e/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/learning-e2e/**/*"
+            ]
           }
         }
       }
@@ -181,7 +189,10 @@
               "libs/home/feature/tsconfig.lib.json",
               "libs/home/feature/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/home/feature/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/home/feature/**/*"
+            ]
           }
         },
         "test": {
@@ -208,7 +219,10 @@
               "libs/theme-picker/tsconfig.lib.json",
               "libs/theme-picker/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/theme-picker/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/theme-picker/**/*"
+            ]
           }
         },
         "test": {
@@ -240,7 +254,10 @@
               "libs/angular-material/tsconfig.lib.json",
               "libs/angular-material/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/angular-material/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/angular-material/**/*"
+            ]
           }
         },
         "test": {
@@ -271,7 +288,10 @@
               "libs/config/learning/tsconfig.lib.json",
               "libs/config/learning/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/config/learning/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/config/learning/**/*"
+            ]
           }
         },
         "test": {
@@ -302,7 +322,10 @@
               "libs/shared/shared/tsconfig.lib.json",
               "libs/shared/shared/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/shared/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/shared/**/*"
+            ]
           }
         },
         "test": {
@@ -333,7 +356,10 @@
               "libs/language-picker/tsconfig.lib.json",
               "libs/language-picker/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/language-picker/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/language-picker/**/*"
+            ]
           }
         },
         "test": {
@@ -364,7 +390,10 @@
               "libs/email-input/tsconfig.lib.json",
               "libs/email-input/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/email-input/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/email-input/**/*"
+            ]
           }
         },
         "test": {
@@ -381,10 +410,44 @@
           "style": "scss"
         }
       }
+    },
+    "shared-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/data-access",
+      "sourceRoot": "libs/shared/data-access/src",
+      "prefix": "angular8-course-ws",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/tsconfig.lib.json",
+              "libs/shared/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/data-access/src/test.ts",
+            "tsConfig": "libs/shared/data-access/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/data-access/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@ngxs/schematics"
   },
   "schematics": {
     "@nrwl/workspace": {

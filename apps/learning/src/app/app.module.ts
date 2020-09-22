@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfigLearningModule } from '@angular8-course-ws/config/learning';
+import { NgxsModule } from '@ngxs/store'
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,8 @@ import { ConfigLearningModule } from '@angular8-course-ws/config/learning';
       { initialNavigation: 'enabled' }
     ),
     BrowserAnimationsModule,
-    ConfigLearningModule
+    ConfigLearningModule,
+    NgxsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent],
