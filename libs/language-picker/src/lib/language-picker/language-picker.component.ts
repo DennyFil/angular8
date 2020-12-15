@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { EnvService } from '@angular8-course-ws/config/learning';
-import { ILanguage } from '@angular8-course-ws/shared/data-access';
+import { Component } from '@angular/core';
+import { ILanguage, SharedState, ChangeLanguageAction } from '@angular8-course-ws/shared/data-access';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'angular8-course-ws-language-picker',
   templateUrl: './language-picker.component.html',
   styleUrls: ['./language-picker.component.scss']
 })
-export class LanguagePickerComponent implements OnInit {
+export class LanguagePickerComponent {
 
-  public languages: ILanguage[];
-  public selectedLanguage: ILanguage;
+  @Select(SharedState.languages)
+  public languages$: Observable<ILanguage[]>;
 
-  constructor(envService: EnvService) {
-    this.languages = envService.languages;
-    this.selectedLanguage = this.languages.find(l=>l.isDefault);
-   }
+  @Select(SharedState.selectedLanguage)
+  public selectedLanguage: Observable<ILanguage>;
 
-  ngOnInit(): void {
+  constructor(private store: Store) {
   }
 
   changeLanguage(lang: ILanguage) {
-    window.location.href = lang.href + window.location.pathname;
+    this.store.dispatch(new ChangeLanguageAction(lang));
   }
 }
