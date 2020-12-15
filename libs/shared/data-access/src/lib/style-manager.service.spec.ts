@@ -6,7 +6,9 @@ describe('StyleManagerService', () => {
   let service: StyleManagerService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [StyleManagerService]
+    });
     service = TestBed.inject(StyleManagerService);
   });
 

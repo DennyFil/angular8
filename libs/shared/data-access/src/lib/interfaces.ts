@@ -1,4 +1,4 @@
-export interface ITheme {
+export class ITheme {
     id: string;
     primary: string;
     accent: string;

@@ -1,30 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { EnvService } from '@angular8-course-ws/config/learning';
-import { ITheme } from '@angular8-course-ws/shared/shared';
-import { StyleManagerService } from '../style-manager.service';
+import { Component } from '@angular/core';
+import { ITheme, SharedState, ChangeThemeAction } from '@angular8-course-ws/shared/data-access';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
 
 @Component({
   selector: 'angular8-course-ws-theme-picker',
   templateUrl: './theme-picker.component.html',
   styleUrls: ['./theme-picker.component.scss']
 })
-export class ThemePickerComponent implements OnInit {
+export class ThemePickerComponent {
 
-  public themes : ITheme[];
-  public selectedTheme : ITheme;
+  @Select(SharedState.themes)
+  public themes$: Observable<ITheme[]>;
+  
+  @Select(SharedState.selectedTheme)
+  public selectedTheme$ : Observable<ITheme>;
 
-  constructor(env: EnvService, private styleManager: StyleManagerService) {
-    this.themes = env.themes;   
-    
-    this.selectedTheme = this.themes.find(t=>t.isDefault);
-   }
-
-  ngOnInit(): void {
+  constructor(private store: Store) {
   }
-
+  
   changeTheme(t: ITheme){
-    this.selectedTheme = t;
 
-    this.styleManager.changeTheme(t);
+    this.store.dispatch(new ChangeThemeAction(t));
   }
 }

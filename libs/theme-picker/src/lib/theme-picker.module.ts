@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { AngularMaterialModule } from '@angular8-course-ws/angular-material';
-import { StyleManagerService } from './style-manager.service';
+import { SharedDataAccessModule } from '@angular8-course-ws/shared/data-access';
 
 @NgModule({
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    SharedDataAccessModule
   ],
   declarations: [ThemePickerComponent],
   exports: [ThemePickerComponent],
-  providers: [StyleManagerService]
+  providers: []
 })
 export class ThemePickerModule {}

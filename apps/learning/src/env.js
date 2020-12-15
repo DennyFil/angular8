@@ -32,7 +32,7 @@
       isDark: false,
       href: 'pink-blue-gray.css',
       isDefault: false
-    },
+    }
   ];
 
   const languages = [

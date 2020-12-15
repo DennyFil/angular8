@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnvService } from '@angular8-course-ws/config/learning';
-import { ILanguage } from '@angular8-course-ws/shared/shared';
+import { ILanguage } from '@angular8-course-ws/shared/data-access';
 
 @Component({
   selector: 'angular8-course-ws-language-picker',
