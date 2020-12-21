@@ -38,12 +38,12 @@
   const languages = [
     {
       name: "English",
-      href: "http://localhost:4200",
+      href: "http://localhost:8080/learning/en",
       isDefault: true
     },
     {
       name: "Spanish",
-      href: "http://localhost:4300"
+      href: "http://localhost:8080/learning/es"
     }
   ];
 

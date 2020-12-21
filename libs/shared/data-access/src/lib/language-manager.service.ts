@@ -6,7 +6,9 @@ export class LanguageManagerService {
 
   changeLanguage(language: ILanguage) {
     if(language && !window.location.href.startsWith(language.href)){
-      window.location.href = language.href + window.location.pathname;
+      const baseRef = document.getElementsByTagName('base')[0].href;
+      const pathname = window.location.href.replace(baseRef, '');
+      window.location.href = language.href + pathname;
     }
   }
 }

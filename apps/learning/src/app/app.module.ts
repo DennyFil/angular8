@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfigLearningModule } from '@angular8-course-ws/config/learning';
 import { NgxsModule } from '@ngxs/store'
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,7 @@ import { NgxsModule } from '@ngxs/store'
     RouterModule.forRoot(
       [
         {
-          path: 'home-feature',
+          path: '',
           loadChildren: () =>
             import('@angular8-course-ws/home/feature').then(
               (module) => module.HomeFeatureModule
@@ -25,7 +26,8 @@ import { NgxsModule } from '@ngxs/store'
     ),
     BrowserAnimationsModule,
     ConfigLearningModule,
-    NgxsModule.forRoot([])
+    NgxsModule.forRoot([]),
+    NgxsStoragePluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
