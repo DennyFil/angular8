@@ -35,7 +35,7 @@ import { Select } from '@ngxs/store';
 export class EmailInputComponent implements OnInit, OnDestroy, ControlValueAccessor {
 
   @Select(SharedState.selectedTheme)
-  selectedTheme$: Observable<ITheme> = new Observable<ITheme>();
+  selectedTheme$: Observable<ITheme>;
 
   @Input() debounceTime = 500;
   emailControl = new FormControl('', [Validators.email]);
