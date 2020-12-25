@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FormControl, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { debounceTime, filter, tap, distinctUntilChanged } from 'rxjs/operators';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { trigger, state, style, transition, animate } from '@angular/animations'
+import { ITheme, SharedState } from '@angular8-course-ws/shared/data-access';
+import { Select } from '@ngxs/store';
+
 @Component({
   selector: 'angular8-course-ws-email-input',
   templateUrl: './email-input.component.html',
@@ -31,14 +34,21 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class EmailInputComponent implements OnInit, OnDestroy, ControlValueAccessor {
 
+  @Select(SharedState.selectedTheme)
+  selectedTheme$: Observable<ITheme> = new Observable<ITheme>();
+
   @Input() debounceTime = 500;
   emailControl = new FormControl('', [Validators.email]);
 
   private onChange: any;
-  private subs: Subscription;
+  private subs: Subscription;                                                                 
   private focusSubject = new BehaviorSubject<number>(0);
   focusState$ = this.focusSubject.pipe(
     map(val => val === 0 ? 'default' : 'focused')
+  );
+
+  shadowRgb$ = this.selectedTheme$.pipe(
+    map(t => t.isDark ? '255,255,255' : '0,0,0')
   );
 
   constructor() { }
